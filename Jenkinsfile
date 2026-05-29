@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         APP_NAME       = "express-login-ui"
-        IMAGE_NAME     = "nileshsun/express-login-ui"
+        IMAGE_NAME     = "abhii18docker/express-login-ui"
         CONTAINER_PORT = "3000"
         HOST_PORT      = "3000"
     }
@@ -18,7 +18,7 @@ pipeline {
         stage('Clone Source') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/nilesh-g/express-login-ui'
+                url: 'https://github.com/D2-96481-Abhishek/express.git'
             }
         }
 
@@ -51,7 +51,7 @@ pipeline {
 
             steps {
                 sh '''
-                    echo "$DOCKER_CREDS_PSW" | docker login \
+                    echo "$DOCKER_CREDS_PASS" | docker login \
                     -u "$DOCKER_CREDS_USR" \
                     --password-stdin
                 '''
